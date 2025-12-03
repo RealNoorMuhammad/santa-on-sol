@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/pump-fees/:path*",
+      "destination": "https://swap-api.pump.fun/:path*"
+    },
+    {
+      "source": "/api/sol-price/:path*",
+      "destination": "https://frontend-api-v3.pump.fun/:path*"
+    }
+  ]
+}
+

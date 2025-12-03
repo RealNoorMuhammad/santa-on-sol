@@ -1,17 +1,11 @@
 export const CREATOR_ADDRESS =
   "5LAokPTr67hxMzDTEqjKcbc2SY34W7TmTqe9hdyEzNqg"
 
-// Use proxy in development to bypass CORS
-const isDev = import.meta.env.DEV
-
+// Use proxy paths - works in both dev (Vite proxy) and prod (Vercel rewrites)
 const FEES_TOTAL_ENDPOINT = (creatorAddress) =>
-  isDev
-    ? `/api/pump-fees/v1/creators/${creatorAddress}/fees/total`
-    : `https://swap-api.pump.fun/v1/creators/${creatorAddress}/fees/total`
+  `/api/pump-fees/v1/creators/${creatorAddress}/fees/total`
 
-const SOL_PRICE_ENDPOINT = isDev
-  ? "/api/sol-price/sol-price"
-  : "https://frontend-api-v3.pump.fun/sol-price"
+const SOL_PRICE_ENDPOINT = "/api/sol-price/sol-price"
 
 // Fallback values from pump.fun profile (updated Dec 3, 2025)
 const FALLBACK_DATA = {
