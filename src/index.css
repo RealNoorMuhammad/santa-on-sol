@@ -1,0 +1,98 @@
+:root {
+  /* MAIN BRAND COLORS - NIGHT SKY THEME */
+  --color-primary: #D32F2F;      /* Christmas Red */
+  --color-primary-soft: #EF5350; 
+  --color-primary-dark: #B71C1C; 
+  
+  /* CHRISTMAS THEME COLORS */
+  --color-holly-red: #D32F2F;    /* Primary Red - Pops against dark blue */
+  --color-holly-red-dark: #B71C1C; 
+  --color-holly-red-light: #EF5350;
+
+  --color-ice-blue: #1E88E5;     /* Ice Blue for borders */
+  --color-ice-blue-dark: #1565C0;
+  --color-ice-blue-deep: #90CAF9; /* LIGHTER Blue for text/accents on dark bg */
+  
+  --color-snow-white: #FFFFFF;
+  --color-snow-white-alt: #FAFAFA;
+  
+  --color-gold: #FFD700;        /* Christmas Gold accents */
+  --color-gold-dark: #FBC02D;
+
+  /* BACKGROUNDS - SINGLE COLOR CHRISTMAS SKY */
+  --color-bg-main: #0A192F;      /* Deep Night Sky Blue - Single Global Background */
+  --color-bg-alt: #0A192F;       /* Same as main for uniformity */
+  --color-bg-dark: #060E1A;      /* Slightly darker for contrast areas if needed */
+  
+  --color-card-bg: #112240;      /* Slightly lighter dark blue for cards */
+  --color-card-bg-alt: #172A46;
+
+  /* TEXT - DARK THEME (Light Text) */
+  --color-text-title: #FFFFFF;   /* White Text */
+  --color-text-body: #E6F1FF;    /* Light Blue/White Text */
+  --color-text-muted: #8892B0;   /* Muted Blue-Grey Text */
+  --color-text-on-primary: #FFFFFF; 
+  --color-text-on-red: #FFFFFF;
+  --color-text-on-blue: #FFFFFF;
+
+  /* BUTTONS */
+  --color-button-primary: #D32F2F;       /* Red Buttons */
+  --color-button-primary-hover: #B71C1C;
+
+  --color-button-secondary: #64FFDA;     /* Cyan/Mint for secondary action */
+  --color-button-secondary-hover: #4CD1B8;
+
+  --color-button-light: #112240;
+  --color-button-light-hover: #172A46;
+
+  /* BORDERS */
+  --color-border: #233554;         
+  --color-border-strong: #303C55;
+
+  /* SHADOWS & EFFECTS */
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-strong: rgba(0, 0, 0, 0.5);
+  
+  /* FONTS */
+  --font-main: 'Caveat', cursive;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-body);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Global Snowflake Background Class */
+.bg-snow {
+  background-image: url('/src/assets/images/snowflakes.png');
+  background-repeat: repeat;
+  background-size: 400px;
+  background-position: center;
+  opacity: 0.15; /* Slightly more visible on dark */
+  filter: invert(1); /* Make snowflakes white */
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Utility to make sure content is above background */
+.relative-content {
+  position: relative;
+  z-index: 1;
+}

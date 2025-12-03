@@ -1,0 +1,42 @@
+.section-separator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg-main); /* Match main background for seamless look */
+  line-height: 0;
+  position: relative;
+  z-index: 10; /* Higher than content to sit on top */
+  overflow: visible; /* Allow overlap */
+  margin-bottom: -5%; /* Pull the next section up by ~5% of width */
+  pointer-events: none; /* Let clicks pass through */
+}
+
+.separator-desktop, 
+.separator-mobile {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  position: relative;
+  /* Slight drop shadow to emphasize the layering */
+  filter: drop-shadow(0 -5px 10px rgba(0,0,0,0.1)); 
+}
+
+.separator-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .separator-desktop {
+    display: none;
+  }
+  
+  .separator-mobile {
+    display: block;
+  }
+  
+  .section-separator {
+    margin-bottom: -8%; /* More overlap on mobile */
+  }
+}

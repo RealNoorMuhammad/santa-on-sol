@@ -1,0 +1,290 @@
+.creator-rewards {
+  position: relative;
+  padding: 6rem 1.5rem;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent),
+    var(--color-bg-main);
+  border-top: 2px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.creator-rewards::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/images/snowflakes.png") repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  animation: creator-snow 40s linear infinite;
+}
+
+@keyframes creator-snow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200px 400px;
+  }
+}
+
+.creator-rewards__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.creator-rewards__heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.creator-rewards__eyebrow {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: var(--color-gold);
+  margin-bottom: 0.8rem;
+}
+
+.creator-rewards__heading h2 {
+  font-size: clamp(2.5rem, 4vw, 3.2rem);
+  color: var(--color-text-title);
+  margin-bottom: 1rem;
+}
+
+.creator-rewards__description {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.creator-rewards__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.creator-rewards__card {
+  background: rgba(17, 34, 64, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.creator-rewards__card--primary {
+  background: linear-gradient(135deg, rgba(11, 24, 48, 0.95), rgba(20, 48, 83, 0.95));
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.creator-rewards__card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.creator-rewards__live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(211, 47, 47, 0.15);
+  color: var(--color-snow-white);
+  border-radius: 999px;
+  padding: 0.1rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid rgba(211, 47, 47, 0.3);
+}
+
+.creator-rewards__live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-holly-red);
+  box-shadow: 0 0 10px rgba(211, 47, 47, 0.7);
+}
+
+.creator-rewards__live-dot.pulsing {
+  animation: creator-pulse 1s ease-in-out infinite;
+}
+
+@keyframes creator-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.creator-rewards__value {
+  font-size: clamp(3.2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--color-text-title);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.creator-rewards__value-suffix {
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  letter-spacing: 0.15rem;
+}
+
+.creator-rewards__subvalue {
+  color: var(--color-text-muted);
+  margin-top: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.creator-rewards__meta {
+  margin-top: 1.3rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.creator-rewards__meta a {
+  color: var(--color-ice-blue-deep);
+  text-decoration: none;
+}
+
+.creator-rewards__meta a:hover {
+  text-decoration: underline;
+}
+
+.creator-rewards__card--secondary h3 {
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  color: var(--color-text-title);
+}
+
+.creator-rewards__detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 1rem;
+}
+
+.creator-rewards__detail-row code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.creator-rewards__detail-row strong {
+  font-size: 1.1rem;
+}
+
+.creator-rewards__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.creator-rewards__link,
+.creator-rewards__refresh-btn {
+  flex: 1 1 140px;
+  border-radius: 999px;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-snow-white);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.creator-rewards__link:hover,
+.creator-rewards__refresh-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-ice-blue);
+}
+
+.creator-rewards__refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.creator-rewards__timestamp {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.creator-rewards__error {
+  margin-top: 2rem;
+  text-align: center;
+  background: rgba(211, 47, 47, 0.1);
+  border: 1px solid rgba(211, 47, 47, 0.3);
+  color: var(--color-text-title);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+}
+
+.creator-rewards__skeleton {
+  display: inline-block;
+  width: 120px;
+  height: 1.5rem;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.05)
+  );
+  animation: creator-shimmer 1.2s linear infinite;
+}
+
+@keyframes creator-shimmer {
+  0% {
+    background-position: -120px 0;
+  }
+  100% {
+    background-position: 120px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .creator-rewards {
+    padding: 4rem 1rem;
+  }
+
+  .creator-rewards__card {
+    padding: 1.5rem;
+  }
+
+  .creator-rewards__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .creator-rewards__link,
+  .creator-rewards__refresh-btn {
+    flex: 1 1 auto;
+    width: 100%;
+    font-size: 0.95rem;
+    padding-inline: 1rem;
+  }
+}
+

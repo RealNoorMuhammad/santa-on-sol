@@ -1,0 +1,48 @@
+.snowfall-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none; /* Let clicks pass through */
+  z-index: 9999; /* High z-index to be on top, but maybe below modals if needed */
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -50px; /* Start above viewport */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px) rotate(0deg) translateX(0px);
+  }
+  25% {
+    transform: translateY(25vh) rotate(90deg) translateX(20px);
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) translateX(-20px);
+  }
+  75% {
+    transform: translateY(75vh) rotate(270deg) translateX(20px);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg) translateX(0px);
+  }
+}
+
+/* Mobile responsiveness: Reduce number of flakes visible or size if needed */
+@media (max-width: 768px) {
+  /* Show only the first 15 flakes on mobile for very light snow */
+  .snowflake:nth-child(n+16) {
+    display: none; 
+  }
+}
+

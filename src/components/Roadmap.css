@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
+
+.roadmap-section {
+  width: 100%;
+  padding: 8rem 2rem;
+  background-color: var(--color-bg-alt);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.roadmap-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.header-group {
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 5;
+}
+
+.roadmap-title {
+  font-family: 'Caveat', cursive;
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--color-holly-red);
+  margin: 0;
+  transform: rotate(-1deg);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  letter-spacing: 2px;
+}
+
+.roadmap-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-ice-blue-deep);
+  margin: 0.5rem 0 0 0;
+  transform: rotate(1deg);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Flight Plan Map Area */
+.flight-plan-map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 1000px; /* Give enough height for the path */
+  /* background-image: url('../assets/images/pumpfun-lapland.png'); Optional map background */
+  /* background-size: cover; */
+  /* background-position: center; */
+  border-radius: 20px;
+  margin-top: 2rem;
+}
+
+/* The Flight Path SVG */
+.flight-path-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.path-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.animated-path {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Stops Positioning */
+.flight-stop {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  z-index: 5;
+}
+
+/* Manual positioning based on the path curve */
+.stop-1 { top: 50px; left: 5%; }
+.stop-2 { top: 250px; right: 10%; }
+.stop-3 { top: 550px; left: 10%; }
+.stop-4 { top: 800px; right: 15%; }
+
+/* Map Pin Style */
+.map-pin {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-primary);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 3px solid var(--color-snow-white);
+  position: relative;
+  z-index: 6;
+  animation: bouncePin 2s infinite ease-in-out;
+}
+
+@keyframes bouncePin {
+  0%, 100% { transform: translateY(0) rotate(-45deg); }
+  50% { transform: translateY(-10px) rotate(-45deg); }
+}
+
+.pin-number {
+  transform: rotate(45deg);
+  color: white;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* Note Styling (reusing paper texture look) */
+.stop-note {
+  background-color: #fdfbf7;
+  padding: 2rem;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  position: relative;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.stop-note:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  z-index: 10;
+}
+
+.pin-head {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--color-holly-red-dark);
+  box-shadow: inset -1px -1px 2px rgba(0,0,0,0.2), 2px 2px 3px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.stop-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-holly-red);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  border-bottom: 2px dashed #e5e5e5;
+  padding-bottom: 0.5rem;
+}
+
+.stop-details {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Specific rotations for variety */
+.stop-1 .stop-note { transform: rotate(-3deg); }
+.stop-2 .stop-note { transform: rotate(2deg); }
+.stop-3 .stop-note { transform: rotate(-1deg); }
+.stop-4 .stop-note { transform: rotate(4deg); }
+
+/* Responsive */
+@media (max-width: 968px) {
+  .roadmap-title { font-size: 4rem; }
+  
+  .flight-plan-map-container {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2rem 0;
+  }
+  
+  .flight-path-line { display: none; } /* Hide complex path on mobile */
+  
+  .flight-stop {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .map-pin {
+    margin-bottom: -25px; /* Overlap note */
+    z-index: 10;
+  }
+  
+  .flight-plan-map-container::before {
+    /* Vertical dashed line for mobile */
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    border-left: 4px dashed var(--color-holly-red);
+    opacity: 0.3;
+    transform: translateX(-2px);
+    z-index: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .roadmap-section { padding: 4rem 1rem; }
+  .roadmap-title { font-size: 3rem; }
+  .stop-title { font-size: 2rem; }
+  .stop-details { font-size: 1.4rem; }
+}

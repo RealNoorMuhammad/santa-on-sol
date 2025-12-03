@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
+
+.real-santa-section {
+  width: 100%;
+  padding: 8rem 2rem;
+  background-color: var(--color-bg-main);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.real-santa-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+}
+
+.header-group {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.real-santa-title {
+  font-family: 'Caveat', cursive;
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--color-holly-red);
+  margin: 0;
+  transform: rotate(-2deg);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  letter-spacing: 2px;
+}
+
+.real-santa-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-ice-blue-deep);
+  margin: 1rem 0 0 0;
+  transform: rotate(1deg);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Grid Layout */
+.real-santa-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+  width: 100%;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* Paper Note Style */
+.paper-texture {
+  background-color: #fdfbf7;
+  padding: 3rem 2rem;
+  border-radius: 2px;
+  box-shadow: 
+    0 10px 20px rgba(0,0,0,0.2),
+    0 0 0 1px rgba(0,0,0,0.05) inset; /* Inner border */
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.paper-texture::before {
+  /* Lines on the paper */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(#e5e5e5 1px, transparent 1px);
+  background-size: 100% 2rem;
+  margin-top: 4rem; /* Start lines after title area */
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.paper-texture:hover {
+  transform: scale(1.02) rotate(0deg) !important;
+  z-index: 10;
+}
+
+/* Pin effect */
+.pin {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  box-shadow: inset -2px -2px 5px rgba(0,0,0,0.2), 2px 2px 5px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.block-title {
+  font-family: 'Caveat', cursive;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-holly-red-dark);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 2px dashed var(--color-primary-soft);
+  padding-bottom: 0.5rem;
+}
+
+.block-paragraph {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50; /* Dark ink color */
+  margin-bottom: 0.5rem;
+  line-height: 2rem; /* Match background lines */
+  text-align: center;
+}
+
+/* Polaroid Style */
+.polaroid {
+  background-color: #fff;
+  padding: 1rem 1rem 4rem 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: rotate(3deg);
+  transition: transform 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #eee;
+  filter: sepia(10%); /* Vintage feel */
+}
+
+.caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: #333;
+  font-weight: 700;
+}
+
+/* Specific rotations */
+.block-1 { transform: rotate(-2deg); }
+.block-2 .polaroid { transform: rotate(4deg); }
+.block-3 .polaroid { transform: rotate(-5deg); }
+.block-4 { transform: rotate(1.5deg); }
+
+
+/* Decoration: Sleigh */
+.santa-sleigh-decoration {
+  position: absolute;
+  bottom: -50px;
+  left: -150px;
+  width: 400px;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: flySanta 20s linear infinite;
+  z-index: 0;
+}
+
+.santa-sleigh-decoration img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes flySanta {
+  0% {
+    transform: translateX(-100%) translateY(50px) rotate(5deg);
+  }
+  25% {
+    transform: translateX(25vw) translateY(-20px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(50vw) translateY(20px) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(75vw) translateY(-10px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100vw) translateY(50px) rotate(5deg);
+    left: 100%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .real-santa-title { font-size: 4rem; }
+  
+  .real-santa-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  /* Order: Text, Image, Text, Image */
+  .block-1 { order: 1; }
+  .block-2 { order: 2; }
+  .block-4 { order: 3; }
+  .block-3 { order: 4; }
+  
+  .paper-texture, .polaroid {
+    transform: rotate(0deg) !important;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .santa-sleigh-decoration {
+    width: 200px;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .real-santa-section { padding: 4rem 1rem; }
+  .real-santa-title { font-size: 3rem; }
+  .block-title { font-size: 2.5rem; }
+  .block-paragraph { font-size: 1.4rem; line-height: 1.6; }
+  .paper-texture::before { display: none; } /* Hide lines on small screens if text doesn't align */
+}

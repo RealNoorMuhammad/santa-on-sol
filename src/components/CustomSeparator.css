@@ -1,0 +1,162 @@
+.custom-separator {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 5;
+  height: 140px;
+  pointer-events: none;
+  line-height: 0;
+}
+
+.custom-separator.top {
+  /* Flip vertically to hang from top */
+  transform: scaleY(-1);
+  margin-top: 0; 
+  /* Adjust overlap with hero */
+  margin-bottom: -40px;
+}
+
+/* Ensure decorative elements are right-side up even if parent is flipped */
+.custom-separator.top .decorative-elements {
+  transform: scaleY(-1);
+  bottom: auto;
+  top: 0;
+}
+
+/* For top separator, we want trees "hanging" or just sitting on the now-inverted ground?
+   Actually if we flip the whole container, the ground is at the top.
+   The "ground" (SVG path) is at bottom of SVG. Flipping Y puts it at top.
+   So trees need to be positioned relative to that "top" ground.
+*/
+
+.separator-wave {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+}
+
+.separator-wave path {
+  fill: var(--color-bg-main, #ffffff); /* Match background or white */
+}
+
+/* Decorative Elements Container */
+.decorative-elements {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Positioning Trees and Elements */
+.tree {
+  position: absolute;
+  bottom: 15px; /* Sits on the snow */
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+  z-index: 2;
+}
+
+/* If flipped (top separator), we need to adjust vertical position because 'bottom' is now top visually */
+.custom-separator.top .tree {
+  bottom: auto;
+  top: 10px; /* Push down from the visual top edge */
+  transform: scaleY(-1); /* Un-flip the emoji */
+}
+.custom-separator.top .snowman {
+  bottom: auto;
+  top: 15px;
+  transform: rotate(5deg) scaleY(-1); /* Un-flip and keep rotate */
+}
+.custom-separator.top .snowflake {
+  transform: scaleY(-1); /* Un-flip flakes */
+}
+
+.tree-1 { left: 5%; animation: sway 3s ease-in-out infinite alternate; }
+.tree-2 { left: 88%; font-size: 2.5rem; animation: sway 4s ease-in-out infinite alternate-reverse; }
+.tree-3 { left: 15%; font-size: 1.5rem; }
+
+.snowman {
+  position: absolute;
+  bottom: 20px;
+  right: 12%;
+  font-size: 2.2rem;
+  transform: rotate(5deg);
+  z-index: 2;
+}
+
+/* Snowflakes */
+.snowflake {
+  position: absolute;
+  color: white;
+  opacity: 0.8;
+  animation: fall linear infinite;
+  z-index: 1;
+}
+
+.s1 { left: 10%; top: 10%; font-size: 1rem; animation-duration: 5s; }
+.s2 { left: 50%; top: 20%; font-size: 1.5rem; animation-duration: 7s; animation-delay: 1s; }
+.s3 { left: 80%; top: 5%; font-size: 1.2rem; animation-duration: 6s; animation-delay: 2s; }
+
+@keyframes sway {
+  from { transform: rotate(-5deg); }
+  to { transform: rotate(5deg); }
+}
+
+/* For top separator, we need to compensate the sway rotation un-flip */
+.custom-separator.top .tree-1 { animation: swayTop 3s ease-in-out infinite alternate; }
+.custom-separator.top .tree-2 { animation: swayTop 4s ease-in-out infinite alternate-reverse; }
+
+@keyframes swayTop {
+  from { transform: scaleY(-1) rotate(-5deg); }
+  to { transform: scaleY(-1) rotate(5deg); }
+}
+
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+
+  
+  .separator-wave {
+    height: 120px; /* Taller wave on desktop */
+  }
+  
+  .tree { font-size: 3rem; }
+  .tree-2 { font-size: 3.5rem; }
+  .snowman { font-size: 3rem; right: 15%; }
+  
+  .custom-separator.top {
+    margin-bottom: -60px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Hide nav-separator on mobile */
+  .custom-separator.nav-separator {
+    display: none;
+  }
+  
+  .custom-separator {
+    height: 10px; /* Force reduced height on mobile */
+  }
+  
+  .custom-separator.top {
+    margin-bottom: -30px;
+  }
+  
+  .separator-wave {
+    height: 60px; /* Shorter wave on mobile */
+  }
+  
+  .tree { font-size: 1.5rem; }
+  .tree-2 { font-size: 2rem; }
+  .snowman { font-size: 1.8rem; right: 8%; }
+  
+  .tree-3 { display: none; } /* Hide extra tree on small screens */
+}
