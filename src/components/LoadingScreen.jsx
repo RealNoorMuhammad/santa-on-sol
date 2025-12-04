@@ -75,16 +75,16 @@ const LoadingScreen = ({ onLoadingComplete }) => {
 
         {/* Title */}
         <h1 className="loading-title">
-          <span className="title-icon">🎄</span>
+
           Santa is Coming
-          <span className="title-icon">🎄</span>
+
         </h1>
 
         {/* Progress Bar Container */}
         <div className="progress-container">
           {/* Candy Cane Progress Bar */}
           <div className="progress-bar-wrapper">
-            <div className="candy-cane-border left">🍬</div>
+   
             
             <div className="progress-bar-track">
               <div 
@@ -103,7 +103,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
               </div>
             </div>
             
-            <div className="candy-cane-border right">🍬</div>
+         
           </div>
 
           {/* Percentage Display */}
