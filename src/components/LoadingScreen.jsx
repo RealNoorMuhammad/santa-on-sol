@@ -73,7 +73,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           </div>
         </div>
 
-        {/* Title */}
+ 
         <h1 className="loading-title">
 
           Santa is Coming
