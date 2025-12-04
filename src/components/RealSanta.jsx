@@ -18,8 +18,8 @@ const RealSanta = () => {
           <div className="content-block block-text block-1 paper-texture">
             <div className="pin"></div>
             <h2 className="block-title">Santa's Mission</h2>
-            <p className="block-paragraph">Bringing gifts to every wallet.</p>
-            <p className="block-paragraph">Naughty or nice, we verify on-chain.</p>
+            <p className="block-paragraph">Bringing gifts to every kid who needs it.</p>
+            <p className="block-paragraph">Naughty or nice, every kid diserves a Christmas gift.</p>
             <p className="block-paragraph">Transparency is our reindeer.</p>
             <p className="block-paragraph">Join the sleigh ride to the moon!</p>
           </div>
@@ -40,10 +40,10 @@ const RealSanta = () => {
           
           <div className="content-block block-text block-4 paper-texture">
              <div className="pin"></div>
-            <h2 className="block-title">North Pole Network</h2>
-            <p className="block-paragraph">Built on the North Pole Network.</p>
-            <p className="block-paragraph">Powered by Christmas Spirit.</p>
-            <p className="block-paragraph">Secure as a chimney.</p>
+            <h2 className="block-title">Straight from Santa</h2>
+            <p className="block-paragraph">Backed by the REAL Santa Claus</p>
+            <p className="block-paragraph">From Lapland.</p>
+            <p className="block-paragraph">Let's make this Christmas great.</p>
             <p className="block-paragraph">Ho Ho HODL!</p>
           </div>
         </div>

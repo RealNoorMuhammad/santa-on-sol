@@ -121,6 +121,8 @@
   transition: all 0.3s ease;
   border-radius: 50px;
   box-shadow: 0 4px 0 var(--color-holly-red-dark);
+  display: inline-block;
+  text-decoration: none;
 }
 
 .buy-now-btn:hover {
@@ -242,6 +244,10 @@
   font-size: 1.8rem;
   margin-top: 1.5rem;
   padding: 0.8rem;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .mobile-menu-decoration {

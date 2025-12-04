@@ -16,14 +16,17 @@ const Tokenomics = () => {
       <div className="bg-snow"></div>
       <div className="tokenomics-container relative-content">
         <div className="header-group">
-            <h1 className="tokenomics-title">Tokenomics</h1>
-            <p className="tokenomics-subtitle">Santa's Treasury Distribution</p>
+            <h1 className="tokenomics-title">Contract Address</h1>
+            <p className="tokenomics-subtitle">The Official Santa Token</p>
         </div>
         
-        <div className="contract-address-wrapper">
+        <div className="contract-address-wrapper prominent">
             <div className="contract-address-container paper-texture">
                 <div className="tape-strip"></div>
-                <p className="contract-label">Contract Address:</p>
+                <div className="decoration-corner top-left">🎄</div>
+                <div className="decoration-corner top-right">🎄</div>
+                
+                <p className="contract-label">Copy & Paste to Buy:</p>
                 <div className="address-row">
                     <input 
                         type="text" 
@@ -32,36 +35,12 @@ const Tokenomics = () => {
                         className="contract-input"
                     />
                     <button onClick={handleCopy} className="copy-btn">
-                        {copied ? "Copied!" : "Copy"}
+                        {copied ? "Copied!" : "Copy Address"}
                     </button>
                 </div>
+                
+             
             </div>
-        </div>
-
-        <div className="tokenomics-cards">
-          <div className="tokenomics-card paper-texture card-1">
-             <div className="pin"></div>
-            <div className="card-icon">🎁</div>
-            <h3 className="card-title">Total Supply</h3>
-            <p className="card-paragraph highlight">1,000,000,000</p>
-            <p className="card-paragraph">Tokens minted for Christmas</p>
-          </div>
-          
-          <div className="tokenomics-card paper-texture card-2">
-             <div className="pin"></div>
-            <div className="card-icon">🦌</div>
-            <h3 className="card-title">Liquidity</h3>
-            <p className="card-paragraph highlight">Burnt Forever</p>
-            <p className="card-paragraph">Safe as the North Pole</p>
-          </div>
-          
-          <div className="tokenomics-card paper-texture card-3">
-             <div className="pin"></div>
-            <div className="card-icon">🎅</div>
-            <h3 className="card-title">Tax</h3>
-            <p className="card-paragraph highlight">0% Buy / 0% Sell</p>
-            <p className="card-paragraph">No grinch taxes here</p>
-          </div>
         </div>
       </div>
     </section>

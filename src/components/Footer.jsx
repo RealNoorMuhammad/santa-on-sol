@@ -29,10 +29,10 @@ const Footer = () => {
         <div className="footer-column social-column">
           <h3 className="footer-title">Join the Party</h3>
           <div className="social-icons">
-            <a href="#" className="social-btn glass-btn" aria-label="X (Twitter)">
+            <a href="https://x.com/i/communities/1995519904557244865" target="_blank" rel="noopener noreferrer" className="social-btn glass-btn" aria-label="X (Twitter)">
                 <FaXTwitter />
             </a>
-            <a href="#" className="social-btn glass-btn" aria-label="Telegram">
+            <a href="https://t.me/officialsantaclauscoin" target="_blank" rel="noopener noreferrer" className="social-btn glass-btn" aria-label="Telegram">
                 <FaTelegram />
             </a>
           </div>
@@ -40,7 +40,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-copyright relative-content">
-        <p className="copyright-text">© 2025 Santa Token. All rights reserved. Made with ❤️ at the North Pole.</p>
+        <p className="copyright-text">© 2025 Santa Token. All rights reserved. </p>
       </div>
     </footer>
   );

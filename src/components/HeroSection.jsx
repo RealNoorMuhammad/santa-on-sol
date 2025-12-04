@@ -5,20 +5,20 @@ const HeroSection = () => {
   return (
     <section className="hero-section">
       <div className="hero-content relative-content">
-        <div className="hero-badge">Welcome to the North Pole</div>
+        <div className="hero-badge">Official Santa Claus Coin</div>
         <h1 className="big-title">
-          Santa's Official <br />
+          $SANTA <br />
          
         </h1>
-        <h3 className="medium-title">Join the festive revolution!</h3>
+        <h3 className="medium-title">All fees donated to kids in need</h3>
         <div className="hero-cta-wrapper">
-          <button className="hero-buy-btn">
+          <a href="https://dexscreener.com/solana/3h3sQKtJvss3enWoqiucKXNDTGgHf1bGXC7mkmeWKiRM" target="_blank" rel="noopener noreferrer" className="hero-buy-btn">
             <span className="btn-content">
               <span className="desktop-text">Get Your Gift Now</span>
               <span className="mobile-text">Gift Now</span>
             </span>
             <div className="btn-shine"></div>
-          </button>
+          </a>
           <p className="cta-subtext">Live on Pump.fun</p>
           <br/>
         </div>

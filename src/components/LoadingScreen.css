@@ -1,0 +1,511 @@
+/* Loading Screen Container */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, 
+    #0a0f1a 0%, 
+    #0d1929 20%,
+    #0f2744 50%,
+    #1a3a5c 80%,
+    #1e4d6b 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2147483647; /* Max z-index to ensure it covers EVERYTHING */
+  overflow: hidden;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+/* Stars Background */
+.loading-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+
+/* Main Content */
+.loading-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* Santa GIF Container */
+.santa-gif-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.santa-loading-gif {
+  width: 280px;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  animation: gif-float 3s ease-in-out infinite;
+}
+
+@keyframes gif-float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+  }
+  50% { 
+    transform: translateY(-15px) scale(1.02); 
+  }
+}
+
+@keyframes bob {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+/* Magic Trail */
+.magic-trail {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.sparkle {
+  font-size: 14px;
+  animation: sparkle-fade 1s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes sparkle-fade {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* Title */
+.loading-title {
+  font-family: 'Caveat', cursive;
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 
+    0 0 20px rgba(255, 100, 100, 0.8),
+    0 0 40px rgba(255, 50, 50, 0.5),
+    2px 2px 0 #b71c1c;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  animation: title-glow 2s ease-in-out infinite alternate;
+}
+
+.title-icon {
+  font-size: 2.5rem;
+  animation: tree-sway 1s ease-in-out infinite alternate;
+}
+
+@keyframes title-glow {
+  0% { 
+    text-shadow: 
+      0 0 20px rgba(255, 100, 100, 0.8),
+      0 0 40px rgba(255, 50, 50, 0.5),
+      2px 2px 0 #b71c1c;
+  }
+  100% { 
+    text-shadow: 
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 0 60px rgba(255, 100, 100, 0.6),
+      2px 2px 0 #b71c1c;
+  }
+}
+
+@keyframes tree-sway {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* Progress Container */
+.progress-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Progress Bar Wrapper */
+.progress-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.candy-cane-border {
+  font-size: 2rem;
+  animation: candy-bounce 0.6s ease-in-out infinite alternate;
+}
+
+.candy-cane-border.left {
+  animation-delay: 0s;
+}
+
+.candy-cane-border.right {
+  animation-delay: 0.3s;
+}
+
+@keyframes candy-bounce {
+  0% { transform: scale(1) rotate(-10deg); }
+  100% { transform: scale(1.1) rotate(10deg); }
+}
+
+/* Progress Bar Track */
+.progress-bar-track {
+  flex: 1;
+  height: 35px;
+  background: linear-gradient(180deg, #1a3a5c 0%, #0d1929 100%);
+  border-radius: 20px;
+  border: 3px solid #64ffda;
+  box-shadow: 
+    inset 0 2px 10px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(100, 255, 218, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Progress Bar Fill */
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    #D32F2F 0%, 
+    #EF5350 25%, 
+    #D32F2F 50%, 
+    #EF5350 75%, 
+    #D32F2F 100%
+  );
+  background-size: 40px 100%;
+  border-radius: 17px;
+  position: relative;
+  transition: width 0.1s ease-out;
+  box-shadow: 
+    0 0 15px rgba(211, 47, 47, 0.6),
+    inset 0 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Candy Stripes */
+.candy-stripes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.15) 10px,
+    rgba(255, 255, 255, 0.15) 20px
+  );
+  animation: stripe-move 1s linear infinite;
+  border-radius: 17px;
+}
+
+@keyframes stripe-move {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 28px; }
+}
+
+/* Progress Santa Icon */
+.progress-santa {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  z-index: 5;
+  transition: left 0.1s ease-out;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  animation: santa-bounce 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes santa-bounce {
+  0% { transform: translateY(-50%) scale(1); }
+  100% { transform: translateY(-55%) scale(1.05); }
+}
+
+/* Progress Text */
+.progress-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-percent {
+  font-family: 'Caveat', cursive;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FFD700;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.8),
+    2px 2px 0 #b71c1c;
+  animation: percent-pulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes percent-pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+
+.loading-message {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  color: #64ffda;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+  animation: message-fade 2s ease-in-out infinite;
+}
+
+@keyframes message-fade {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Decoration Row */
+.decoration-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.ornament, .present {
+  font-size: 1.5rem;
+  animation: ornament-swing 2s ease-in-out infinite;
+}
+
+.ornament.red { animation-delay: 0s; }
+.ornament.gold { animation-delay: 0.3s; }
+.ornament.green { animation-delay: 0.6s; }
+.present { animation-delay: 0.9s; font-size: 2rem; }
+
+@keyframes ornament-swing {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg); }
+}
+
+/* Ground Section */
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.trees {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.tree {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 10px rgba(0, 100, 0, 0.5));
+  animation: tree-sway-ground 3s ease-in-out infinite;
+}
+
+.tree.small {
+  font-size: 2.5rem;
+  animation-duration: 2.5s;
+}
+
+@keyframes tree-sway-ground {
+  0%, 100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(2deg) translateY(-3px); }
+}
+
+.snow-ground {
+  height: 40px;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(200, 230, 255, 0.8) 50%,
+    rgba(150, 200, 255, 0.6) 100%
+  );
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  transform: scaleX(1.5);
+  box-shadow: 
+    0 -5px 20px rgba(255, 255, 255, 0.3),
+    inset 0 5px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loading-title {
+    font-size: 2.5rem;
+  }
+  
+  .title-icon {
+    font-size: 2rem;
+  }
+  
+  .progress-container {
+    max-width: 90%;
+  }
+  
+  .progress-bar-track {
+    height: 30px;
+  }
+  
+  .progress-santa {
+    font-size: 25px;
+  }
+  
+  .progress-percent {
+    font-size: 2.5rem;
+  }
+  
+  .loading-message {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .santa-loading-gif {
+    width: 220px;
+  }
+  
+  .tree {
+    font-size: 3rem;
+  }
+  
+  .tree.small {
+    font-size: 2rem;
+  }
+  
+  .decoration-row {
+    gap: 10px;
+  }
+  
+  .ornament {
+    font-size: 1.2rem;
+  }
+  
+  .present {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-title {
+    font-size: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .santa-loading-gif {
+    width: 180px;
+  }
+  
+  .progress-percent {
+    font-size: 2rem;
+  }
+  
+  .loading-message {
+    font-size: 1rem;
+  }
+  
+  .candy-cane-border {
+    font-size: 1.5rem;
+  }
+}
+
+/* Add a nice aurora effect at the top */
+.loading-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(180deg,
+    rgba(100, 255, 218, 0.1) 0%,
+    rgba(100, 200, 255, 0.05) 30%,
+    transparent 100%
+  );
+  animation: aurora 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes aurora {
+  0% {
+    opacity: 0.5;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateX(10%);
+  }
+}
+
+/* Moon */
+.loading-screen::after {
+  content: '🌙';
+  position: absolute;
+  top: 50px;
+  right: 80px;
+  font-size: 4rem;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 200, 0.8));
+  animation: moon-glow 3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes moon-glow {
+  0% {
+    filter: drop-shadow(0 0 30px rgba(255, 255, 200, 0.6));
+    transform: scale(1);
+  }
+  100% {
+    filter: drop-shadow(0 0 50px rgba(255, 255, 200, 0.9));
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 768px) {
+  .loading-screen::after {
+    top: 30px;
+    right: 30px;
+    font-size: 3rem;
+  }
+}
+

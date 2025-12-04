@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+
+.lore-section {
+  width: 100%;
+  padding: 8rem 2rem;
+  background-color: var(--color-bg-alt);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.lore-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.lore-title {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--color-holly-red);
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  letter-spacing: 2px;
+}
+
+.lore-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-ice-blue-deep);
+  margin: 0.5rem 0 0 0;
+  text-align: center;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.story-book-container {
+  width: 100%;
+  position: relative;
+  perspective: 1000px;
+}
+
+.story-content {
+  background-color: #fdfbf7;
+  padding: 4rem 3rem;
+  border-radius: 5px;
+  box-shadow: 
+    inset 0 0 30px rgba(139, 69, 19, 0.1),
+    0 15px 35px rgba(0,0,0,0.2);
+  position: relative;
+  transform: rotateX(5deg);
+  transform-style: preserve-3d;
+}
+
+/* Paper texture overlay */
+.story-content.paper-texture {
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.story-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.story-text strong {
+  color: var(--color-holly-red);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.signature-section {
+  margin-top: 3rem;
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.signature {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 3rem;
+  color: var(--color-holly-red);
+  transform: rotate(-5deg);
+  display: inline-block;
+}
+
+/* Decorative corners */
+.corner-decoration {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 3px double var(--color-gold);
+}
+
+.top-left { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.top-right { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+.bottom-right { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+@media (max-width: 900px) {
+  .lore-title { font-size: 4rem; }
+  .lore-subtitle { font-size: 2rem; }
+  .story-content { padding: 3rem 2rem; }
+}
+
+@media (max-width: 768px) {
+  .lore-section { padding: 4rem 1rem; }
+  .lore-title { font-size: 3rem; }
+  .lore-subtitle { font-size: 1.8rem; }
+  .story-content { padding: 2rem 1.5rem; }
+  .story-text { font-size: 1.4rem; }
+  .story-text strong { font-size: 1.6rem; }
+  .signature { font-size: 2.2rem; }
+}
+
+@media (max-width: 480px) {
+  .lore-title { font-size: 2.5rem; }
+  .lore-subtitle { font-size: 1.5rem; }
+  .story-content { padding: 1.5rem 1rem; }
+  .story-text { font-size: 1.2rem; line-height: 1.5; }
+  .story-text strong { font-size: 1.3rem; }
+  .signature { font-size: 1.8rem; }
+  .signature-section { margin-top: 2rem; padding-right: 0.5rem; }
+  
+  /* Adjust corners for small screens */
+  .corner-decoration { width: 30px; height: 30px; }
+  .top-left { top: 10px; left: 10px; }
+  .top-right { top: 10px; right: 10px; }
+  .bottom-left { bottom: 10px; left: 10px; }
+  .bottom-right { bottom: 10px; right: 10px; }
+}
+
