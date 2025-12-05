@@ -689,5 +689,6 @@
   .order-proofs__embed-wrapper,
   .order-proofs__modal-fallback {
     min-height: 60vh; /* Taller on mobile for scrolling tweets */
+    height: 70vh; /* Force more vertical space on small screens */
   }
 }
