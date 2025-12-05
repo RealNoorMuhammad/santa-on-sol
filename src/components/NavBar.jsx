@@ -34,8 +34,6 @@ const NavBar = () => {
         
         {/* Desktop Navigation */}
         <div className="navbar-links desktop-nav">
-          <a href="#tokenomics" className="nav-link">Tokenomics</a>
-          <a href="#flight-plan" className="nav-link">Flight Plan</a>
           <a href="#creator-rewards" className="nav-link">Rewards</a>
           <a href="#real-santa" className="nav-link">Real Santa</a>
         </div>
@@ -55,12 +53,6 @@ const NavBar = () => {
         <div className={`mobile-menu-overlay ${isMenuOpen ? "open" : ""}`}>
           <div className="snow-falling-effect"></div>
           <div className="mobile-menu-content">
-            <a href="#tokenomics" className="mobile-nav-link" onClick={toggleMenu}>
-             Tokenomics
-            </a>
-            <a href="#flight-plan" className="mobile-nav-link" onClick={toggleMenu}>
-              Flight Plan
-            </a>
             <a href="#creator-rewards" className="mobile-nav-link" onClick={toggleMenu}>
               Rewards
             </a>

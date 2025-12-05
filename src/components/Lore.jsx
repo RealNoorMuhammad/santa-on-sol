@@ -7,8 +7,8 @@ const Lore = () => {
        <div className="bg-snow"></div>
       <div className="lore-container">
         <div className="header-group">
-            <h1 className="lore-title">The Chronicles of Santa</h1>
-            <p className="lore-subtitle">A Tale of Magic and Blockchain</p>
+            <h1 className="lore-title">About $SANTA</h1>
+            <p className="lore-subtitle">The journey towards better Christmas for all!</p>
         </div>
         
         <div className="story-book-container">
@@ -19,16 +19,16 @@ const Lore = () => {
                 <div className="corner-decoration bottom-right"></div>
                 
                 <p className="story-text">
-                    For centuries, Santa Claus delivered joy using ancient magic and reindeer power. But as the world went digital, Santa realized he needed an upgrade to keep up with the modern age. The elves at the North Pole began working on a top-secret project—a new kind of ledger that was transparent, immutable, and powered by pure Christmas spirit.
+                For centuries Santa Claus has been the symbol of giving and kindness. As the world changed and everything moved online the real Santa from Lapland wanted a way to keep spreading joy in a simple and direct way. He chose to create something modern that still stays true to the spirit of Christmas.
                 </p>
                 <p className="story-text">
-                    Thus, <strong>Santa Coin</strong> was born.
+                This is how <strong>SANTA</strong> was born.
                 </p>
                 <p className="story-text">
-                    Built on the securest blockchain known to elf-kind, it ensures that every transaction spreads cheer and every holder gets a guaranteed spot on the Nice List. It's not just a currency; it's a movement to decentralize giving and bring the magic of Christmas to the entire world.
+                SANTA is a coin backed by Santa himself and created with one purpose. Every creator fee collected from the coin goes toward buying toys for children who cannot afford them. Every transaction becomes a small contribution to real gifts and real smiles.
                 </p>
                 <p className="story-text">
-                    Now, with the help of his community, Santa is ready to take his sleigh ride to the moon, delivering gifts and green candles to all the good boys and girls of the crypto verse.
+                There is no complex story and no hidden mechanics. SANTA exists to turn a fun holiday coin into something that actually helps kids who need it. With the support of the community Santa can continue bringing joy to families and keep the tradition of giving alive in a way that fits today’s world.
                 </p>
                 
                 <div className="signature-section">

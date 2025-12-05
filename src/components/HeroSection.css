@@ -265,12 +265,26 @@
     font-size: 0.9em; /* Scale relative to big-title */
   }
   
+  .hero-cta-wrapper {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
   .hero-buy-btn {
     font-size: 1.2rem; /* Reduced to fit mobile better */
     padding: 0.9rem 1.8rem;
     width: auto;
     max-width: 90%;
     white-space: nowrap; /* Keeps text on one line */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-subtext {
+    margin-left: 0;
+    text-align: center;
   }
   
   .hero-badge {

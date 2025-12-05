@@ -99,10 +99,13 @@ const OrderProofs = () => {
         <div className="order-proofs__stats-grid">
           <div className="order-proofs__stat-card">
             <span className="order-proofs__stat-label">Gifts donated</span>
-            <p className="order-proofs__stat-value">
-              {summaryCopy.gifts}
-              <span>toys</span>
-            </p>
+            <div className="order-proofs__stat-value order-proofs__stat-value--stacked">
+              <div>
+                {summaryCopy.gifts}
+                <span>toys</span>
+              </div>
+              <div className="order-proofs__stat-subtitle">Creator Rewards Tracker</div>
+            </div>
             <small>Across all fulfilled orders</small>
           </div>
 

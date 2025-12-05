@@ -41,6 +41,20 @@ const orderProofs = [
     postedAt: "2025-12-03T15:47:00Z",
     imageUrl: "https://pbs.twimg.com/media/G7QWOleWQAANGcx.jpg?format=jpg&name=large",
   },
+  {
+    id: "order-004",
+    label: "Order #4",
+    title: "Order #4 · 203 Toys for Older Kids",
+    giftCount: 203,
+    amountUsd: 2720,
+    ageRange: "Older age group",
+    description:
+      "Another $2,720 drop aimed at the older age group — 203 toys secured to round out the hospital deliveries.",
+    tweetId: "1996674916696183075",
+    tweetUrl: "https://x.com/XbtPika/status/1996674916696183075",
+    postedAt: "2025-12-04T20:16:00Z",
+    imageUrl: "https://pbs.twimg.com/media/G7WdQKLXgAAeUeT?format=jpg&name=large",
+  },
 ]
 
 export const totalGiftCount = orderProofs.reduce(

@@ -10,12 +10,12 @@ const HeroSection = () => {
           $SANTA <br />
          
         </h1>
-        <h3 className="medium-title">All fees donated to kids in need</h3>
+        <h3 className="medium-title">All creator rewards are used to buy gifts for kids in need</h3>
         <div className="hero-cta-wrapper">
           <a href="https://dexscreener.com/solana/3h3sQKtJvss3enWoqiucKXNDTGgHf1bGXC7mkmeWKiRM" target="_blank" rel="noopener noreferrer" className="hero-buy-btn">
             <span className="btn-content">
-              <span className="desktop-text">Get Your Gift Now</span>
-              <span className="mobile-text">Gift Now</span>
+              <span className="desktop-text">JOIN THE MOVEMENT</span>
+              <span className="mobile-text">Buy Now</span>
             </span>
             <div className="btn-shine"></div>
           </a>

@@ -17,15 +17,6 @@ const Footer = () => {
           <span className="logo-text neon-text">SANTA</span>
         </div>
         
-        <div className="footer-column links-column">
-          <h3 className="footer-title">North Pole Links</h3>
-          <div className="footer-links">
-            <a href="#tokenomics" className="footer-link">Tokenomics</a>
-            <a href="#roadmap" className="footer-link">Roadmap</a>
-            <a href="#real-santa" className="footer-link">Real Santa</a>
-          </div>
-        </div>
-        
         <div className="footer-column social-column">
           <h3 className="footer-title">Join the Party</h3>
           <div className="social-icons">
@@ -40,7 +31,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-copyright relative-content">
-        <p className="copyright-text">© 2025 Santa Token. All rights reserved. </p>
+        <p className="copyright-text">© 2025 Santa Coin. All rights reserved. </p>
       </div>
     </footer>
   );
