@@ -29,11 +29,20 @@ const formatDate = (value) => {
 
 const OrderProofs = () => {
   const [selectedProof, setSelectedProof] = useState(null)
+  const [isTweetLoading, setIsTweetLoading] = useState(false)
 
   const modalTweetEmbedUrl = useMemo(() => {
     if (!selectedProof?.tweetId) return null
     return `https://platform.twitter.com/embed/Tweet.html?id=${selectedProof.tweetId}&theme=dark`
   }, [selectedProof])
+
+  useEffect(() => {
+    if (modalTweetEmbedUrl) {
+      setIsTweetLoading(true)
+    } else {
+      setIsTweetLoading(false)
+    }
+  }, [modalTweetEmbedUrl])
 
   useEffect(() => {
     if (typeof window === "undefined" || !selectedProof) {
@@ -219,14 +228,23 @@ const OrderProofs = () => {
             <p className="order-proofs__description">{selectedProof.description}</p>
 
             {modalTweetEmbedUrl ? (
-              <iframe
-                key={selectedProof.tweetId}
-                src={modalTweetEmbedUrl}
-                title={`${selectedProof.label} tweet proof`}
-                loading="lazy"
-                frameBorder="0"
-                allow="fullscreen; clipboard-write"
-              />
+              <div className="order-proofs__embed-wrapper" aria-busy={isTweetLoading}>
+                {isTweetLoading && (
+                  <div className="order-proofs__embed-loader">
+                    <div className="order-proofs__spinner" />
+                    <p>Loading proof…</p>
+                  </div>
+                )}
+                <iframe
+                  key={selectedProof.tweetId}
+                  src={modalTweetEmbedUrl}
+                  title={`${selectedProof.label} tweet proof`}
+                  loading="lazy"
+                  frameBorder="0"
+                  allow="fullscreen; clipboard-write"
+                  onLoad={() => setIsTweetLoading(false)}
+                />
+              </div>
             ) : (
               <div className="order-proofs__modal-fallback">
                 <p>Proof embed coming soon. Use the X link below in the meantime.</p>
