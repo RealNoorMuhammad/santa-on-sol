@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect } from "react"
+import { getStoredTheme, setStoredTheme } from "./utils/themeStorage"
 import NavBar from "./components/NavBar"
 import HeroSection from "./components/HeroSection"
 import LiveStream from "./components/LiveStream"
@@ -18,10 +19,11 @@ import SnowWhiteSeparator from "./components/SnowWhiteSeparator"
 import LoadingScreen from "./components/LoadingScreen"
 
 function App() {
+  const [theme, setTheme] = useState(getStoredTheme)
   const [isLoading, setIsLoading] = useState(true)
-  const [theme, setTheme] = useState("night")
 
   useEffect(() => {
+    setStoredTheme(theme)
     const root = document.documentElement
     const body = document.body
     root.classList.remove("theme-night", "theme-snow-white")
@@ -42,7 +44,7 @@ function App() {
 
   return (
     <div className={`app theme-${theme}`}>
-      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} isSnowWhiteTheme={theme === "snow-white"} />}
       {!isLoading && (
         <>
           <Snowfall />

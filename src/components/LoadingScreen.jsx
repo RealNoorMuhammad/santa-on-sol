@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './LoadingScreen.css';
 import santaRunningGif from '../assets/images/santa-running.gif';
 
-const LoadingScreen = ({ onLoadingComplete }) => {
+const LoadingScreen = ({ onLoadingComplete, isSnowWhiteTheme = false }) => {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -40,7 +40,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
   if (!isVisible) return null;
 
   return (
-    <div className={`loading-screen ${progress >= 100 ? 'fade-out' : ''}`}>
+    <div className={`loading-screen ${progress >= 100 ? 'fade-out' : ''} ${isSnowWhiteTheme ? 'theme-snow-white' : ''}`}>
       {/* Stars Background */}
       <div className="loading-stars">
         {[...Array(30)].map((_, i) => (
@@ -55,6 +55,16 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           />
         ))}
       </div>
+
+      {/* Moon */}
+      {!isSnowWhiteTheme && (
+        <div className="loading-moon">🌙</div>
+      )}
+      
+      {/* Snow White Sun/Day Decoration */}
+      {isSnowWhiteTheme && (
+        <div className="loading-sun">☀️</div>
+      )}
 
       {/* Main Content */}
       <div className="loading-content">
