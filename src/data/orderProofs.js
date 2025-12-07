@@ -67,7 +67,10 @@ const orderProofs = [
     tweetId: "1997412708891705449",
     tweetUrl: "https://x.com/robopboc/status/1997412708891705449",
     postedAt: "2025-12-06T21:07:54.590Z",
-    imageUrl: "https://pbs.twimg.com/media/G7g8RF2WsAMEvBc?format=jpg&name=large",
+    imageUrls: [
+      "https://i.ibb.co/nssJqLXv/G7g7-Cd3-WUAEl-l-S.jpg",
+
+    ],
   },
 ]
 

@@ -14,6 +14,15 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
 
 const numberFormatter = new Intl.NumberFormat("en-US")
 
+const resolveProofImages = (proof) => {
+  if (!proof) return []
+  if (Array.isArray(proof.imageUrls) && proof.imageUrls.length > 0) {
+    return proof.imageUrls
+  }
+  if (proof.imageUrl) return [proof.imageUrl]
+  return []
+}
+
 const formatDate = (value) => {
   if (!value) return ""
   const date = new Date(value)
@@ -35,6 +44,11 @@ const OrderProofs = () => {
     if (!selectedProof?.tweetId) return null
     return `https://platform.twitter.com/embed/Tweet.html?id=${selectedProof.tweetId}&theme=dark`
   }, [selectedProof])
+
+  const selectedProofImages = useMemo(
+    () => resolveProofImages(selectedProof),
+    [selectedProof]
+  )
 
   useEffect(() => {
     if (modalTweetEmbedUrl) {
@@ -134,72 +148,79 @@ const OrderProofs = () => {
         </div>
 
         <div className="order-proofs__grid">
-          {orderProofs.map((proof) => (
-            <article key={proof.id} className="order-proofs__card">
-              <div className="order-proofs__card-header">
-                <span className="order-proofs__pill">{proof.label}</span>
-                {proof.giftCount != null ? (
-                  <span className="order-proofs__gift-count">
-                    {numberFormatter.format(proof.giftCount)} toys
-                  </span>
-                ) : (
-                  <span className="order-proofs__gift-count order-proofs__gift-count--muted">
-                    Gift count pending
-                  </span>
+          {orderProofs.map((proof) => {
+            const proofImages = resolveProofImages(proof)
+            const primaryImage = proofImages[0]
+            const extraImageCount = Math.max(0, proofImages.length - 1)
+
+            return (
+              <article key={proof.id} className="order-proofs__card">
+                <div className="order-proofs__card-header">
+                  <span className="order-proofs__pill">{proof.label}</span>
+                  {proof.giftCount != null ? (
+                    <span className="order-proofs__gift-count">
+                      {numberFormatter.format(proof.giftCount)} toys
+                    </span>
+                  ) : (
+                    <span className="order-proofs__gift-count order-proofs__gift-count--muted">
+                      Gift count pending
+                    </span>
+                  )}
+                </div>
+
+                {primaryImage && (
+                  <div className="order-proofs__image-wrapper">
+                    <img
+                      src={primaryImage}
+                      alt={`Receipt preview for ${proof.title}`}
+                      loading="lazy"
+                    />
+                    {extraImageCount > 0 && (
+                      <span className="order-proofs__image-count">
+                        +{extraImageCount} more
+                      </span>
+                    )}
+                  </div>
                 )}
-              </div>
 
-              {proof.imageUrl && (
-                <div className="order-proofs__image-wrapper">
-                  <img
-                    src={proof.imageUrl}
-                    alt={`Receipt preview for ${proof.title}`}
-                    loading="lazy"
-                  />
-                </div>
-              )}
+                <h3>{proof.title}</h3>
+                <p className="order-proofs__description">{proof.description}</p>
 
-              <h3>{proof.title}</h3>
-              <p className="order-proofs__description">{proof.description}</p>
+                <dl className="order-proofs__meta">
+                  <div>
+                    <dt>Donation</dt>
+                    <dd>
+                      {proof.amountUsd != null
+                        ? currencyFormatter.format(proof.amountUsd)
+                        : "—"}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Posted</dt>
+                    <dd>{formatDate(proof.postedAt)}</dd>
+                  </div>
+                </dl>
 
-              <dl className="order-proofs__meta">
-                <div>
-                  <dt>Donation</dt>
-                  <dd>
-                    {proof.amountUsd != null
-                      ? currencyFormatter.format(proof.amountUsd)
-                      : "—"}
-                  </dd>
+                <div className="order-proofs__actions">
+                  <button
+                    type="button"
+                    className="order-proofs__btn order-proofs__btn--primary"
+                    onClick={() => setSelectedProof(proof)}
+                  >
+                    View Proof
+                  </button>
+                  <a
+                    href={proof.tweetUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="order-proofs__btn order-proofs__btn--ghost"
+                  >
+                    Open on X
+                  </a>
                 </div>
-                <div>
-                  <dt>Age focus</dt>
-                  <dd>{proof.ageRange ?? "All ages"}</dd>
-                </div>
-                <div>
-                  <dt>Posted</dt>
-                  <dd>{formatDate(proof.postedAt)}</dd>
-                </div>
-              </dl>
-
-              <div className="order-proofs__actions">
-                <button
-                  type="button"
-                  className="order-proofs__btn order-proofs__btn--primary"
-                  onClick={() => setSelectedProof(proof)}
-                >
-                  View Proof
-                </button>
-                <a
-                  href={proof.tweetUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="order-proofs__btn order-proofs__btn--ghost"
-                >
-                  Open on X
-                </a>
-              </div>
-            </article>
-          ))}
+              </article>
+            )
+          })}
         </div>
       </div>
 
@@ -248,9 +269,9 @@ const OrderProofs = () => {
             ) : (
               <div className="order-proofs__modal-fallback">
                 <p>Proof embed coming soon. Use the X link below in the meantime.</p>
-                {selectedProof.imageUrl && (
+                {selectedProofImages[0] && (
                   <img
-                    src={selectedProof.imageUrl}
+                    src={selectedProofImages[0]}
                     alt={`Receipt preview for ${selectedProof.title}`}
                     loading="lazy"
                   />
@@ -258,20 +279,31 @@ const OrderProofs = () => {
               </div>
             )}
 
-            {selectedProof.imageUrl && (
+            {selectedProofImages.length > 0 && (
               <div className="order-proofs__modal-proof-media">
                 <div className="order-proofs__modal-proof-header">
-                  <p>Receipt still from tweet</p>
-                  <a href={selectedProof.imageUrl} target="_blank" rel="noreferrer">
-                    Open full size
+                  <p>Receipt gallery</p>
+                  <a
+                    href={selectedProofImages[0]}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open primary
                   </a>
                 </div>
-                <div className="order-proofs__modal-proof-image">
-                  <img
-                    src={selectedProof.imageUrl}
-                    alt={`Receipt image for ${selectedProof.title}`}
-                    loading="lazy"
-                  />
+                <div className="order-proofs__modal-proof-gallery">
+                  {selectedProofImages.map((src, index) => (
+                    <div
+                      key={`${src}-${index}`}
+                      className="order-proofs__modal-proof-image"
+                    >
+                      <img
+                        src={src}
+                        alt={`Receipt image ${index + 1} for ${selectedProof.title}`}
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             )}

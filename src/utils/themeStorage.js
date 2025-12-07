@@ -11,3 +11,4 @@ export const setStoredTheme = (theme) => {
   localStorage.setItem(THEME_KEY, theme);
 };
 
+
