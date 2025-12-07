@@ -55,6 +55,20 @@ const orderProofs = [
     postedAt: "2025-12-04T20:16:00Z",
     imageUrl: "https://pbs.twimg.com/media/G7WdQKLXgAAeUeT?format=jpg&name=large",
   },
+  {
+    id: "order-005",
+    label: "Order #5",
+    title: "Order #5 · 238 Toys from Creator Rewards",
+    giftCount: 238,
+    amountUsd: 2896,
+    ageRange: "Hospital kids (all ages)",
+    description:
+      "Creator rewards drop after @souljaboyplz donated 20 SOL directly to the mission — $2,896 converted into 238 toys for kids in need and those spending Christmas in hospitals, pushing totals past 1,250+ gifts and $15.5K donated.",
+    tweetId: "1997412708891705449",
+    tweetUrl: "https://x.com/robopboc/status/1997412708891705449",
+    postedAt: "2025-12-06T21:07:54.590Z",
+    imageUrl: "https://pbs.twimg.com/media/G7g8RF2WsAMEvBc?format=jpg&name=large",
+  },
 ]
 
 export const totalGiftCount = orderProofs.reduce(

@@ -225,6 +225,32 @@
   opacity: 0.8;
 }
 
+/* Snow White theme */
+.theme-snow-white .footer {
+  background: #ffffff;
+}
+
+.theme-snow-white .footer::before {
+  background: #ffffff;
+}
+
+.theme-snow-white .glass-btn {
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+}
+
+.theme-snow-white .glass-btn::after {
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+}
+
+.theme-snow-white .glass-btn:hover {
+  background: var(--color-holly-red);
+  border-color: var(--color-holly-red);
+  box-shadow: 0 8px 18px rgba(211, 47, 47, 0.35);
+}
+
 /* Responsive design */
 @media (max-width: 900px) {
   .footer-container {

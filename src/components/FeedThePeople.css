@@ -1,0 +1,320 @@
+.ftp-section {
+  width: 100%;
+  padding: 6rem 2rem;
+  background-color: var(--color-bg-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.ftp-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(211,47,47,0.25), transparent 40%),
+              radial-gradient(circle at 80% 10%, rgba(76,175,80,0.2), transparent 35%),
+              radial-gradient(circle at 50% 80%, rgba(255,215,0,0.15), transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ftp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.ftp-title {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(3rem, 5vw + 1rem, 5rem);
+  font-weight: 700;
+  color: #4CAF50; /* FTP Green */
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  margin: 0;
+  text-align: center;
+  transform: rotate(-1deg);
+}
+
+.ftp-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.6rem, 3vw + 0.5rem, 2.5rem);
+  color: var(--color-text-body);
+  margin: 0.5rem 0 0;
+  text-align: center;
+}
+
+.ftp-content {
+  display: flex;
+  flex-direction: row; /* Side by side on desktop */
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .ftp-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.ftp-text-card {
+  background: linear-gradient(135deg, rgba(17,34,64,0.9), rgba(28,50,90,0.9));
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  padding: 3rem;
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-decoration {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-top: 4px solid var(--color-holly-red);
+  border-left: 4px solid var(--color-holly-red);
+}
+
+.card-decoration.top-left {
+  top: -2px;
+  left: -2px;
+  border-radius: 8px 0 0 0;
+}
+
+.card-decoration.bottom-right {
+  bottom: -2px;
+  right: -2px;
+  border-top: none;
+  border-left: none;
+  border-bottom: 4px solid var(--color-holly-red);
+  border-right: 4px solid var(--color-holly-red);
+  border-radius: 0 0 8px 0;
+}
+
+.ftp-paragraph {
+  font-size: clamp(1.25rem, 2vw + 0.6rem, 1.5rem);
+  line-height: 1.6;
+  color: #eaf4ff;
+  margin-bottom: 1.5rem;
+  font-family: 'Caveat', cursive;
+}
+
+.ftp-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.ftp-paragraph.greeting {
+  font-size: clamp(1.6rem, 3vw + 0.4rem, 2rem);
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.ftp-paragraph.signature {
+  font-size: clamp(1.4rem, 3vw + 0.2rem, 1.8rem);
+  color: #4CAF50; /* Green */
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 2rem; /* Add space for the button */
+}
+
+.highlight {
+  color: var(--color-ice-blue-deep);
+  font-weight: 700;
+}
+
+.tweet-proof {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tweet-label {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #ffd700;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.ftp-tweet-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.18) 0,
+      rgba(255, 255, 255, 0.18) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    linear-gradient(135deg, #b00020 0%, #d62828 50%, #1b4332 100%);
+  color: #fffdf7;
+  text-decoration: none;
+  padding: clamp(0.8rem, 2.5vw + 0.3rem, 1.1rem) clamp(1.4rem, 4vw + 0.5rem, 2.1rem);
+  border-radius: 999px;
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.1rem, 2.8vw + 0.4rem, 1.35rem);
+  font-weight: 700;
+  align-self: flex-start;
+  transition: all 0.25s ease;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    0 0 0 2px rgba(255, 255, 255, 0.14),
+    0 0 18px rgba(255, 215, 128, 0.3);
+  border: 2px solid rgba(255, 215, 128, 0.7);
+}
+
+@media (min-width: 1024px) {
+  .ftp-tweet-link {
+    padding: 0.75rem 1.6rem;
+    font-size: 1.15rem;
+  }
+}
+
+.ftp-tweet-link:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 2px rgba(255, 255, 255, 0.2),
+    0 0 22px rgba(255, 215, 128, 0.45);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.22) 0,
+      rgba(255, 255, 255, 0.22) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    linear-gradient(135deg, #c1121f 0%, #ff4136 55%, #2d6a4f 100%);
+  border-color: rgba(255, 215, 128, 0.95);
+}
+
+@media (max-width: 600px) {
+  .ftp-text-card {
+    padding: 2.2rem;
+  }
+
+  .tweet-proof {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .ftp-tweet-link {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.ftp-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+  border-radius: 1rem;
+  transform: rotate(1.5deg);
+  transition: transform 0.3s ease;
+  padding: 10px;
+  background: white;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.image-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.ftp-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.border-overlay {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  pointer-events: none;
+  opacity: 0.8;
+  display: none; /* Hide for now unless we are sure about the asset dimensions/fit */
+}
+
+.image-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 4px solid var(--color-holly-red);
+  border-radius: 1rem;
+  box-sizing: border-box;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Snow White theme */
+.theme-snow-white .ftp-section {
+  background: #ffffff !important;
+}
+
+.theme-snow-white .ftp-section::before {
+  display: none !important;
+}
+
+.theme-snow-white .ftp-text-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+  color: var(--color-text-body);
+}
+
+.theme-snow-white .ftp-paragraph {
+  color: var(--color-text-body);
+}
+
+.theme-snow-white .ftp-paragraph.greeting {
+  color: var(--color-holly-red);
+}
+
+.theme-snow-white .ftp-paragraph.signature {
+  color: #2e7d32;
+}
+
+.theme-snow-white .ftp-title {
+  text-shadow: none;
+}
+
+.theme-snow-white .tweet-label {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--color-text-title);
+}
+
+.theme-snow-white .ftp-tweet-link {
+  border-color: rgba(0, 0, 0, 0.08);
+}

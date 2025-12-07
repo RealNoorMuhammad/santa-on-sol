@@ -3,7 +3,7 @@ import "./NavBar.css";
 import candyCaneBg from "../assets/images/candy-cane-border.png";
 
 
-const NavBar = () => {
+const NavBar = ({ isSnowWhiteTheme = false, onToggleTheme = () => {} }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -38,7 +38,21 @@ const NavBar = () => {
           <a href="#real-santa" className="nav-link">Real Santa</a>
         </div>
 
-        <a href="https://dexscreener.com/solana/3h3sQKtJvss3enWoqiucKXNDTGgHf1bGXC7mkmeWKiRM" target="_blank" rel="noopener noreferrer" className="buy-now-btn desktop-only">Buy Now</a>
+        <div className="navbar-actions">
+          <div className="theme-toggle desktop-only">
+            <button
+              type="button"
+              className={`theme-ball ${isSnowWhiteTheme ? "is-snow" : "is-moon"}`}
+              onClick={onToggleTheme}
+              aria-label={isSnowWhiteTheme ? "Switch to night theme" : "Switch to Snow White theme"}
+            >
+              <span className="theme-ball__icon" aria-hidden="true">
+                {isSnowWhiteTheme ? "❄" : "🌙"}
+              </span>
+            </button>
+          </div>
+          <a href="https://dexscreener.com/solana/3h3sQKtJvss3enWoqiucKXNDTGgHf1bGXC7mkmeWKiRM" target="_blank" rel="noopener noreferrer" className="buy-now-btn desktop-only">Buy Now</a>
+        </div>
         
         {/* Mobile Menu Toggle */}
         <div className="hamburger-wrapper" onClick={toggleMenu}>
@@ -60,6 +74,18 @@ const NavBar = () => {
             Real Santa
             </a>
             <a href="https://dexscreener.com/solana/3h3sQKtJvss3enWoqiucKXNDTGgHf1bGXC7mkmeWKiRM" target="_blank" rel="noopener noreferrer" className="buy-now-btn mobile-btn">BUY</a>
+            <div className="theme-toggle mobile-theme-toggle">
+              <button
+                type="button"
+                className={`theme-ball ${isSnowWhiteTheme ? "is-snow" : "is-moon"}`}
+                onClick={onToggleTheme}
+                aria-label={isSnowWhiteTheme ? "Switch to night theme" : "Switch to Snow White theme"}
+              >
+                <span className="theme-ball__icon" aria-hidden="true">
+                  {isSnowWhiteTheme ? "❄" : "🌙"}
+                </span>
+              </button>
+            </div>
             
             <div className="mobile-menu-decoration">
               <img src={candyCaneBg} alt="Candy Cane" className="decoration-img" />

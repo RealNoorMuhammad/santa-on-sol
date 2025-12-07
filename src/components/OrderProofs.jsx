@@ -258,6 +258,24 @@ const OrderProofs = () => {
               </div>
             )}
 
+            {selectedProof.imageUrl && (
+              <div className="order-proofs__modal-proof-media">
+                <div className="order-proofs__modal-proof-header">
+                  <p>Receipt still from tweet</p>
+                  <a href={selectedProof.imageUrl} target="_blank" rel="noreferrer">
+                    Open full size
+                  </a>
+                </div>
+                <div className="order-proofs__modal-proof-image">
+                  <img
+                    src={selectedProof.imageUrl}
+                    alt={`Receipt image for ${selectedProof.title}`}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            )}
+
             <div className="order-proofs__modal-links">
               <a href={selectedProof.tweetUrl} target="_blank" rel="noreferrer">
                 Open tweet in new tab

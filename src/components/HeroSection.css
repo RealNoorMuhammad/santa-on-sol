@@ -307,5 +307,34 @@
   }
 }
 
+.theme-snow-white .hero-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 70%, #e8eef7 100%);
+}
+
+.theme-snow-white .hero-section::before {
+  opacity: 0.35;
+  filter: saturate(0.7);
+}
+
+.theme-snow-white .hero-badge {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--color-holly-red-dark);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
+}
+
+.theme-snow-white .big-title {
+  color: var(--color-holly-red);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.theme-snow-white .medium-title {
+  color: var(--color-text-body);
+  opacity: 0.9;
+}
+
+.theme-snow-white .cta-subtext {
+  color: var(--color-text-muted);
+}
 
 

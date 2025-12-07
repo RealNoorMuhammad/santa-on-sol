@@ -266,6 +266,44 @@
   }
 }
 
+/* Snow White theme */
+.theme-snow-white .creator-rewards {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.theme-snow-white .creator-rewards::before {
+  display: none !important;
+}
+
+.theme-snow-white .creator-rewards__card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  backdrop-filter: none;
+}
+
+.theme-snow-white .creator-rewards__card--primary {
+  background: #ffffff;
+  border-color: rgba(211, 47, 47, 0.25);
+}
+
+.theme-snow-white .creator-rewards__detail-row {
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+.theme-snow-white .creator-rewards__link,
+.theme-snow-white .creator-rewards__refresh-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--color-text-title);
+}
+
+.theme-snow-white .creator-rewards__meta {
+  color: var(--color-text-muted);
+}
+
 @media (max-width: 640px) {
   .creator-rewards {
     padding: 4rem 1rem;

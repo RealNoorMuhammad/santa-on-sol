@@ -57,6 +57,26 @@
   --font-main: 'Caveat', cursive;
 }
 
+:root.theme-snow-white {
+  /* Light / Snow White Theme */
+  --color-bg-main: #ffffff;
+  --color-bg-alt: #f7f9fc;
+  --color-bg-dark: #e5e7eb;
+  --color-card-bg: #ffffff;
+  --color-card-bg-alt: #eef2f7;
+
+  --color-text-title: #0f172a;
+  --color-text-body: #111827;
+  --color-text-muted: #4b5563;
+
+  --color-ice-blue: #2563eb;
+  --color-ice-blue-dark: #1d4ed8;
+  --color-ice-blue-deep: #1f2937;
+
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  --color-shadow-strong: rgba(0, 0, 0, 0.16);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -72,6 +92,39 @@ html, body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* Snow White global flattening: wipe gradients/textures so the site is pure white */
+.theme-snow-white body,
+.theme-snow-white #root,
+.theme-snow-white .app {
+  background: #ffffff !important;
+}
+
+.theme-snow-white section,
+.theme-snow-white .nav-separator,
+.theme-snow-white .custom-separator,
+.theme-snow-white .santa-separator,
+.theme-snow-white .footer,
+.theme-snow-white .loading-screen,
+.theme-snow-white .hero-section,
+.theme-snow-white .livestream-section,
+.theme-snow-white .tokenomics-section,
+.theme-snow-white .creator-rewards,
+.theme-snow-white .order-proofs,
+.theme-snow-white .lore,
+.theme-snow-white .feed-the-people,
+.theme-snow-white .real-santa {
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+.theme-snow-white .hero-section::before,
+.theme-snow-white .hero-section::after,
+.theme-snow-white .creator-rewards::before,
+.theme-snow-white .footer::before {
+  display: none !important;
 }
 
 /* Global Snowflake Background Class */

@@ -1,9 +1,11 @@
 import React from "react";
 import "./HeroSection.css";
+import SnowWhiteHeroBackground from "./SnowWhiteHeroBackground";
 
-const HeroSection = () => {
+const HeroSection = ({ isSnowWhiteTheme }) => {
   return (
     <section className="hero-section">
+      {isSnowWhiteTheme && <SnowWhiteHeroBackground />}
       <div className="hero-content relative-content">
         <div className="hero-badge">Official Santa Claus Coin</div>
         <h1 className="big-title">
