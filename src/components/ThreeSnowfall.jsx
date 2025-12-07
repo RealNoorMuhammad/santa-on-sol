@@ -141,6 +141,9 @@ const SnowParticles = ({ count = 1500, color }) => {
 
 const ThreeSnowfall = ({ theme }) => {
   const snowColor = theme === 'snow-white' ? '#2563eb' : '#ffffff'; 
+  const isMobile = window.innerWidth < 768;
+  // Reduce desktop quantity slightly (1500 -> 1000) and mobile (400)
+  const particleCount = isMobile ? 400 : 1000;
 
   return (
     <div style={{
@@ -162,7 +165,7 @@ const ThreeSnowfall = ({ theme }) => {
         // so we don't strictly need R3F events on the canvas for this.
         events={null} 
       >
-        <SnowParticles count={1500} color={snowColor} />
+        <SnowParticles count={particleCount} color={snowColor} />
       </Canvas>
     </div>
   );
