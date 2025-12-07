@@ -58,7 +58,7 @@ const orderProofs = [
   {
     id: "order-005",
     label: "Order #5",
-    title: "Order #5 · 238 Toys from Creator Rewards",
+    title: "Order #5 · 238 Toys for Older Kids",
     giftCount: 238,
     amountUsd: 2896,
     ageRange: "Hospital kids (all ages)",
