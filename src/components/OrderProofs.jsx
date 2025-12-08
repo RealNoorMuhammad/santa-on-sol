@@ -151,7 +151,6 @@ const OrderProofs = () => {
           {orderProofs.map((proof) => {
             const proofImages = resolveProofImages(proof)
             const primaryImage = proofImages[0]
-            const extraImageCount = Math.max(0, proofImages.length - 1)
 
             return (
               <article key={proof.id} className="order-proofs__card">
@@ -175,11 +174,6 @@ const OrderProofs = () => {
                       alt={`Receipt preview for ${proof.title}`}
                       loading="lazy"
                     />
-                    {extraImageCount > 0 && (
-                      <span className="order-proofs__image-count">
-                        +{extraImageCount} more
-                      </span>
-                    )}
                   </div>
                 )}
 
@@ -276,35 +270,6 @@ const OrderProofs = () => {
                     loading="lazy"
                   />
                 )}
-              </div>
-            )}
-
-            {selectedProofImages.length > 0 && (
-              <div className="order-proofs__modal-proof-media">
-                <div className="order-proofs__modal-proof-header">
-                  <p>Receipt gallery</p>
-                  <a
-                    href={selectedProofImages[0]}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Open primary
-                  </a>
-                </div>
-                <div className="order-proofs__modal-proof-gallery">
-                  {selectedProofImages.map((src, index) => (
-                    <div
-                      key={`${src}-${index}`}
-                      className="order-proofs__modal-proof-image"
-                    >
-                      <img
-                        src={src}
-                        alt={`Receipt image ${index + 1} for ${selectedProof.title}`}
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
               </div>
             )}
 
