@@ -125,7 +125,7 @@ const OrderProofs = () => {
             <div className="order-proofs__stat-value order-proofs__stat-value--stacked">
               <div>
                 {summaryCopy.gifts}
-                <span>toys</span>
+                <span>gifts</span>
               </div>
               <div className="order-proofs__stat-subtitle">Creator Rewards Tracker</div>
             </div>

@@ -72,6 +72,23 @@ const orderProofs = [
 
     ],
   },
+  {
+    id: "order-006",
+    label: "Order #6",
+    title: "Order #6 · 120 Baby Comforters for children in NICU",
+    giftCount: 120,
+    amountUsd: 1310,
+    ageRange: "NICU newborns",
+    description:
+      "NICU-focused drop — $1,310 funded 120 baby comforters for infants receiving care, keeping them warm and comforted this holiday season.",
+    tweetId: "1997798521567895555",
+    tweetUrl: "https://x.com/xbtpika/status/1997798521567895555",
+    postedAt: "2025-12-07T22:40:00Z",
+    imageUrls: [
+      "https://pbs.twimg.com/media/G7mbKkqX0AAvHjs?format=jpg&name=large",
+      "https://pbs.twimg.com/media/G7mbKkmW0AEViLd?format=jpg&name=large",
+    ],
+  },
 ]
 
 export const totalGiftCount = orderProofs.reduce(
