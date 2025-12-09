@@ -58,7 +58,30 @@ const orderProofs = [
   {
     id: "order-005",
     label: "Order #5",
-    title: "Order #5 · 238 Toys for Older Kids",
+    title: "Order #5 · 216 Gifts for Hope The Mission children’s shelter (FTP Collab)",
+    giftCount: 216,
+    amountUsd: 1861,
+    ageRange: "Hope The Mission children’s shelter",
+    description:
+      "FTP collab run — $1,861.41 receipt for 216 gifts delivered to Hope The Mission’s children’s shelter. Full proof posted with photos and on-chain transaction.",
+    tweetId: "1998114590018900103",
+    tweetUrl: "https://x.com/ftponsol/status/1998114590018900103",
+    postedAt: "2025-12-08T10:57:26.000Z",
+    imageUrls: [
+      "/assets/order-005-haul.jpg",
+      "/assets/order-005-email.svg",
+    ],
+    links: [
+      {
+        label: "Solscan transaction",
+        url: "https://solscan.io/tx/51vxcHbr21aiwxvgN7zWJmxD2QaBmMboMTGpVrDeyKmJsyJSxD9giPv2uyTytishDa6LiiHa5xgaYyHcurB6byzY",
+      },
+    ],
+  },
+  {
+    id: "order-006",
+    label: "Order #6",
+    title: "Order #6 · 238 Toys for Older Kids",
     giftCount: 238,
     amountUsd: 2896,
     ageRange: "Hospital kids (all ages)",
@@ -69,13 +92,13 @@ const orderProofs = [
     postedAt: "2025-12-06T21:07:54.590Z",
     imageUrls: [
       "https://i.ibb.co/nssJqLXv/G7g7-Cd3-WUAEl-l-S.jpg",
-
+      
     ],
   },
   {
-    id: "order-006",
-    label: "Order #6",
-    title: "Order #6 · 120 Baby Comforters for children in NICU",
+    id: "order-007",
+    label: "Order #7",
+    title: "Order #7 · 120 Baby Comforters for children in NICU",
     giftCount: 120,
     amountUsd: 1310,
     ageRange: "NICU newborns",

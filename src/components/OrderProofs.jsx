@@ -94,6 +94,11 @@ const OrderProofs = () => {
 
   const closeModal = () => setSelectedProof(null)
 
+  const selectedProofLinks = useMemo(
+    () => selectedProof?.links || [],
+    [selectedProof]
+  )
+
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
       closeModal()
@@ -158,7 +163,7 @@ const OrderProofs = () => {
                   <span className="order-proofs__pill">{proof.label}</span>
                   {proof.giftCount != null ? (
                     <span className="order-proofs__gift-count">
-                      {numberFormatter.format(proof.giftCount)} toys
+                      {numberFormatter.format(proof.giftCount)} gifts
                     </span>
                   ) : (
                     <span className="order-proofs__gift-count order-proofs__gift-count--muted">
@@ -270,6 +275,48 @@ const OrderProofs = () => {
                     loading="lazy"
                   />
                 )}
+              </div>
+            )}
+
+            {selectedProof?.id !== "order-005" && selectedProofImages.length > 0 && (
+              <div className="order-proofs__modal-gallery">
+                {selectedProofImages.map((imageSrc, index) => (
+                  <img
+                    key={`${selectedProof.id}-img-${imageSrc}`}
+                    src={imageSrc}
+                    alt={selectedProof.title}
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+            )}
+
+            {selectedProofLinks.length > 0 && (
+              <div className="order-proofs__extra-links">
+                <div className="order-proofs__extra-header">
+                  <div>
+                    <p className="order-proofs__extra-eyebrow">Additional proof links</p>
+                    <p className="order-proofs__extra-subtitle">
+                      Cross-check on-chain receipts or supporting media for this drop.
+                    </p>
+                  </div>
+                </div>
+                <div className="order-proofs__extra-grid">
+                  {selectedProofLinks.map((link) => (
+                    <a
+                      key={`${selectedProof.id}-${link.url}`}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="order-proofs__extra-link"
+                    >
+                      <span className="order-proofs__extra-link-label">{link.label}</span>
+                      <span aria-hidden="true" className="order-proofs__extra-link-arrow">
+                        ↗
+                      </span>
+                    </a>
+                  ))}
+                </div>
               </div>
             )}
 
