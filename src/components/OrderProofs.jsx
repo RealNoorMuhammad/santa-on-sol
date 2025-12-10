@@ -364,7 +364,7 @@ const OrderProofs = () => {
               </div>
             )}
 
-            {selectedProof?.id !== "order-005" && selectedProofImages.length > 0 && (
+            {selectedProof?.id !== "order-005" && selectedProof?.id !== "order-008" && selectedProofImages.length > 0 && (
               <div className="order-proofs__modal-gallery">
                 {selectedProofImages.map((imageSrc, index) => (
                   <img

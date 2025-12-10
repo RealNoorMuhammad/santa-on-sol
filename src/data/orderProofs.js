@@ -124,7 +124,7 @@ const orderProofs = [
     shoutoutLink: "https://x.com/0xBossman",
     tweetId: "1998769675929305279",
     tweetUrl: "https://x.com/XbtPika/status/1998769675929305279",
-    postedAt: "2025-12-10T00:00:00Z",
+    postedAt: "2025-12-10T12:00:00Z",
     imageUrl: "https://i.ibb.co/ccn6c7M0/Whats-App-Image-2025-12-10-at-8-55-37-AM.jpg",
   },
 ]
