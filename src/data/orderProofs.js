@@ -112,6 +112,21 @@ const orderProofs = [
       "https://pbs.twimg.com/media/G7mbKkmW0AEViLd?format=jpg&name=large",
     ],
   },
+  {
+    id: "order-008",
+    label: "Order #8",
+    title: "Order #8 · Another donation of $2860 from the $SANTA community",
+    giftCount: 191,
+    amountUsd: 2860,
+    ageRange: null,
+    description: "Massive shoutout to @0xBossman who personally donated 1,000$ to the charity today. finding people with genuine values in this space is rare, and when someone steps up without asking for anything in return, it deserves real respect",
+   
+    shoutoutLink: "https://x.com/0xBossman",
+    tweetId: "1998769675929305279",
+    tweetUrl: "https://x.com/XbtPika/status/1998769675929305279",
+    postedAt: "2025-12-10T00:00:00Z",
+    imageUrl: "https://i.ibb.co/ccn6c7M0/Whats-App-Image-2025-12-10-at-8-55-37-AM.jpg",
+  },
 ]
 
 export const totalGiftCount = orderProofs.reduce(

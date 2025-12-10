@@ -183,7 +183,50 @@ const OrderProofs = () => {
                 )}
 
                 <h3>{proof.title}</h3>
-                <p className="order-proofs__description">{proof.description}</p>
+                {proof.shoutout && (
+                  <p className="order-proofs__description">
+                    {proof.shoutout.split("@0xBossman").map((part, index, array) => {
+                      if (index === array.length - 1) {
+                        return <React.Fragment key={index}>{part}</React.Fragment>
+                      }
+                      return (
+                        <React.Fragment key={index}>
+                          {part}
+                          <a
+                            href={proof.shoutoutLink || "https://x.com/0xBossman"}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ color: "inherit", textDecoration: "underline" }}
+                          >
+                            @0xBossman
+                          </a>
+                        </React.Fragment>
+                      )
+                    })}
+                  </p>
+                )}
+                {proof.description && (
+                  <p className="order-proofs__description">
+                    {proof.description.split("@0xBossman").map((part, index, array) => {
+                      if (index === array.length - 1) {
+                        return <React.Fragment key={index}>{part}</React.Fragment>
+                      }
+                      return (
+                        <React.Fragment key={index}>
+                          {part}
+                          <a
+                            href={proof.shoutoutLink || "https://x.com/0xBossman"}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ color: "inherit", textDecoration: "underline" }}
+                          >
+                            @0xBossman
+                          </a>
+                        </React.Fragment>
+                      )
+                    })}
+                  </p>
+                )}
 
                 <dl className="order-proofs__meta">
                   <div>
@@ -245,7 +288,50 @@ const OrderProofs = () => {
             </button>
             <span className="order-proofs__pill">{selectedProof.label}</span>
             <h3 id={`order-proof-${selectedProof.id}`}>{selectedProof.title}</h3>
-            <p className="order-proofs__description">{selectedProof.description}</p>
+            {selectedProof.shoutout && (
+              <p className="order-proofs__description">
+                {selectedProof.shoutout.split("@0xBossman").map((part, index, array) => {
+                  if (index === array.length - 1) {
+                    return <React.Fragment key={index}>{part}</React.Fragment>
+                  }
+                  return (
+                    <React.Fragment key={index}>
+                      {part}
+                      <a
+                        href={selectedProof.shoutoutLink || "https://x.com/0xBossman"}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ color: "inherit", textDecoration: "underline" }}
+                      >
+                        @0xBossman
+                      </a>
+                    </React.Fragment>
+                  )
+                })}
+              </p>
+            )}
+            {selectedProof.description && (
+              <p className="order-proofs__description">
+                {selectedProof.description.split("@0xBossman").map((part, index, array) => {
+                  if (index === array.length - 1) {
+                    return <React.Fragment key={index}>{part}</React.Fragment>
+                  }
+                  return (
+                    <React.Fragment key={index}>
+                      {part}
+                      <a
+                        href={selectedProof.shoutoutLink || "https://x.com/0xBossman"}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ color: "inherit", textDecoration: "underline" }}
+                      >
+                        @0xBossman
+                      </a>
+                    </React.Fragment>
+                  )
+                })}
+              </p>
+            )}
 
             {modalTweetEmbedUrl ? (
               <div className="order-proofs__embed-wrapper" aria-busy={isTweetLoading}>
