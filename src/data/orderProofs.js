@@ -127,6 +127,23 @@ const orderProofs = [
     postedAt: "2025-12-10T12:00:00Z",
     imageUrl: "https://i.ibb.co/ccn6c7M0/Whats-App-Image-2025-12-10-at-8-55-37-AM.jpg",
   },
+  {
+    id: "order-009",
+    label: "Order #9",
+    title: "Order #9 · $3340 donated from the $SANTA community",
+    giftCount: 220,
+    amountUsd: 3340,
+    ageRange: null,
+    description:
+      "$3340 donated from $Santa community once again! Unbelievable and super grateful. Can we get to 5K items by Christmas?",
+    tweetId: "1999084925778354677",
+    tweetUrl: "https://x.com/XbtPika/status/1999084925778354677",
+    postedAt: "2025-12-11T12:00:00Z",
+    imageUrls: [
+      "https://pbs.twimg.com/media/G74tJLvWAAAGyMG?format=jpg&name=large",
+      "https://pbs.twimg.com/media/G74tJLuX0AAaxEH?format=jpg&name=large",
+    ],
+  },
 ]
 
 export const totalGiftCount = orderProofs.reduce(
