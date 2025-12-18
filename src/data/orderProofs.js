@@ -144,6 +144,26 @@ const orderProofs = [
       "https://pbs.twimg.com/media/G74tJLuX0AAaxEH?format=jpg&name=large",
     ],
   },
+  {
+    id: "order-010",
+    label: "Order #10",
+    title: "Order #10 · $10K Water Well Donation to Lofi Foundation",
+    giftCount: null,
+    amountUsd: 10000,
+    ageRange: "Water well in Cameroon",
+    description:
+      "Proud milestone — $10K donated to @lofitheyeti for a water well in Cameroon. $4.7K from dev wallet and $5.3K personal contribution. Santa has already helped thousands of kids through gift donations, and this Christmas we're blessing an entire village in Cameroon with clean water.",
+    tweetId: "2001363963523518946",
+    tweetUrl: "https://x.com/roboPBOC/status/2001363963523518946",
+    postedAt: "2025-12-17T10:48:00Z",
+    imageUrl: "https://pbs.twimg.com/media/G8YUM2lXYAEfzt1?format=jpg&name=large",
+    links: [
+      {
+        label: "Lofi Foundation",
+        url: "https://x.com/lofitheyeti",
+      },
+    ],
+  },
 ]
 
 export const totalGiftCount = orderProofs.reduce(
